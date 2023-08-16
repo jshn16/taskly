@@ -6,10 +6,15 @@
 
 div.container{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 div.container>form,div.container>div{
   margin: 1rem ;
+}
+
+span{
+  display: flex;
 }
