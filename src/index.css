@@ -11,10 +11,45 @@ div.container{
   align-items: center;
 }
 
-div.container>form,div.container>div{
-  margin: 1rem ;
-}
 
 span{
   display: flex;
+}
+span p{
+  text-align: left;
+  flex-grow: 1;
+}
+
+.container{
+ position: fixed;
+ top: 15%;
+ left: 50%;
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ justify-content: center;
+ transform: translate(-50%,-50%);
+ 
+  min-width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1rem;
+  border-radius: 1rem;
+  /* width: fit-content; */
+}
+
+div.todoList{
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+hr{
+  width: 100%;
+  margin: 1rem 0;
+}
+
+input{
+  padding: 0.5rem;
+  border: 2px solid #ccc;
 }

@@ -39,42 +39,102 @@ function Form() {
 
     useEffect(() => {
         localStorage.setItem("Todos", JSON.stringify(todos));
-    });
-
+    }, [todos]);
 
     //handleDelete
-function handleDelete(id){
-    console.log(id)
-    //only show those todo's that has id not equall to the one clicked 
-    let removeTodo=todos.filter((todo)=>(todo.id !==id))
-    setTodo(removeTodo);
-}
+    function handleDelete(id) {
+        console.log(id);
+        //only show those todo's that has id not equall to the one clicked
+        let removeTodo = todos.filter((todo) => todo.id !== id);
+        setTodo(removeTodo);
+    }
+
+    const [editForm, setEditForm] = useState(false);
+    const [id, setId] = useState();
+
+    function handleEdit(todo, index) {
+        console.log(index);
+        setEditForm(true);
+        setId(index);
+        setTodoValue(todo.todoName);
+    }
+
+    function handleEditSubmit(event) {
+        event.preventDefault();
+        let todoItems = [...todos]
+        console.log(todoItems)
+        let todoItem = todoItems[id]
+
+        todoItem.todoName = todoValue
+
+        console.log(todoItem)
+        setTodo(todoItems)
+        setTodoValue('')
+        setEditForm(false)
+
+    }
 
     return (
         <div className="container">
-            <form className="taskForm">
+            <h1>Taskly</h1>
+            <hr/>
+            {editForm === false && (
                 <div>
-                    <input
-                        type="text"
-                        placeholder="Add Tasks"
-                        onChange={(event) => {
-                            setTodoValue(event.target.value);
-                        }}
-                        value={todoValue}
-                    />
-                    <button onClick={handleSubmit} type="submit">
-                        Add
-                    </button>
+                    <form className="taskForm">
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Add Tasks"
+                                onChange={(event) => {
+                                    setTodoValue(event.target.value);
+                                }}
+                            />
+                            <button onClick={handleSubmit} type="submit">
+                                Add
+                            </button>
+
+
+                        </div>
+                    </form>
                 </div>
-            </form>
+            )}
+
+            {editForm === true && (
+                <div>
+                    <form className="taskForm">
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Add Tasks"
+                                onChange={(event) => {
+                                    setTodoValue(event.target.value);
+                                }} value={todoValue}
+                            />
+                            <button onClick={handleEditSubmit} type="submit">
+                                Edit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            )}
 
             <div className="todoList">
                 {todos.length > 0 &&
                     todos.map((todo, index) => (
                         <span key={index}>
-                            
+                            {/* <button onClick={() => { handleEdit(todo.id) }}>Edit</button> */}
+                            <input type="checkbox" />
                             <p>{todo.todoName}</p>
-                            <button onClick={()=>{handleDelete(todo.id)}}>Delete</button>
+                            <button
+                                onClick={() => {
+                                    handleDelete(todo.id);
+                                }}
+                            >
+                                Delete
+                            </button>
+                            <button onClick={() => { handleEdit(todo, index) }} type="submit">
+                                Edit
+                            </button>
                         </span>
                     ))}
             </div>
