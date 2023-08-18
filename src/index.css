@@ -44,17 +44,23 @@ span p{
   flex-grow: 1;
 }
 
+
+.App{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .container{
- position: fixed;
- top: 15%;
- left: 50%;
+ margin-top: 2rem;
  display: flex;
  align-items: center;
  flex-direction: column;
  justify-content: center;
- transform: translate(-50%,-50%);
  
-  min-width: 300px;
+ 
+  width: 300px;
+  height: auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1rem;
   border-radius: 1rem;

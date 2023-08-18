@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
 import { v4 as uuid } from "uuid";
 
 //using local storage to fetch data
@@ -13,10 +14,13 @@ function todoData() {
 }
 
 function Form() {
+  
+
   const [todoValue, setTodoValue] = useState("");
 
   const [todos, setTodo] = useState(todoData());
   // console.log(todos)
+  let todoForm = useRef();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -33,6 +37,7 @@ function Form() {
       // console.log(todoObject)
       // console.log(`${todoValue} Saved To localStorage`)
       setTodoValue("");
+      todoForm.current.reset();
     } else {
       alert("please add task");
     }
@@ -73,24 +78,23 @@ function Form() {
 
     console.log(todoItem);
     setTodo(todoItems);
-    setTodoValue("");
+    setTodoValue(``);
     setEditForm(false);
   }
 
   //Checkbox Handler
   function handleComplete(todo, index) {
-    let spanChild=document.querySelector('span p')
     let todoItems = [...todos];
 
     if (todo.todoCompleted === false) {
       todo.todoCompleted = true;
-      
-      spanChild.style.textDecoration='line-through'
 
+      // spanChild.style.textDecoration='line-through'
     } else if (todo.todoCompleted === true) {
       todo.todoCompleted = false;
-      spanChild.style.textDecoration='none'
+      // spanChild.style.textDecoration='none'
     }
+    setTodoValue(todo);
 
     setTodo(todoItems);
   }
@@ -101,7 +105,7 @@ function Form() {
       <hr />
       {editForm === false && (
         <div>
-          <form className="taskForm">
+          <form ref={todoForm} className="taskForm">
             <div>
               <input
                 type="text"
@@ -148,8 +152,17 @@ function Form() {
                 onChange={() => {
                   handleComplete(todo, index);
                 }}
+                checked={todo.todoCompleted}
               />
-              <p>{todo.todoName}</p>
+              <p
+                style={
+                  todo.todoCompleted === true
+                    ? { textDecoration: "line-through" }
+                    : { textDecoration: "none" }
+                }
+              >
+                {todo.todoName}
+              </p>
               <button
                 onClick={() => {
                   handleDelete(todo.id);
