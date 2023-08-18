@@ -108,13 +108,14 @@ function Form() {
           <form ref={todoForm} className="taskForm">
             <div>
               <input
+              className="inputBox"
                 type="text"
                 placeholder="Add Tasks"
                 onChange={(event) => {
                   setTodoValue(event.target.value);
                 }}
               />
-              <button onClick={handleSubmit} type="submit">
+              <button className="btn-common" onClick={handleSubmit} type="submit">
                 Add
               </button>
             </div>
@@ -127,6 +128,7 @@ function Form() {
           <form className="taskForm">
             <div>
               <input
+              className="inputBox"
                 type="text"
                 placeholder="Add Tasks"
                 onChange={(event) => {
@@ -134,7 +136,7 @@ function Form() {
                 }}
                 value={todoValue}
               />
-              <button onClick={handleEditSubmit} type="submit">
+              <button className="btn-common" onClick={handleEditSubmit} type="submit">
                 Update
               </button>
             </div>
@@ -164,6 +166,7 @@ function Form() {
                 {todo.todoName}
               </p>
               <button
+              className="btn-common"
                 onClick={() => {
                   handleDelete(todo.id);
                 }}
@@ -171,6 +174,7 @@ function Form() {
                 Delete
               </button>
               <button
+              className="btn-common"
                 onClick={() => {
                   handleEdit(todo, index);
                 }}
