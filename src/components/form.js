@@ -11,6 +11,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
+import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
+
 import { BsFillCalendarPlusFill } from "react-icons/bs";
 
 //date
@@ -62,7 +64,7 @@ function Form() {
     localStorage.setItem("Todos", JSON.stringify(todos));
   }, [todos]);
 
-  //handleDelete
+  //Delete todo item
   function handleDelete(id) {
     console.log(id);
     //only show those todo's that has id not equall to the one clicked
@@ -106,6 +108,7 @@ function Form() {
 
       // divChild.style.textDecoration='line-through'
     } else if (todo.todoCompleted === true) {
+      
       todo.todoCompleted = false;
       // divChild.style.textDecoration='none'
     }
@@ -253,6 +256,14 @@ function Form() {
             href="https://www.instagram.com/jshnsaini/"
           >
             <InstagramIcon />
+          </a>
+
+          <a
+            target="_blank"
+            className="icon"
+            href="https://www.jshnsaini.ca/"
+          >
+            <LanguageRoundedIcon />
           </a>
         </div>
 
