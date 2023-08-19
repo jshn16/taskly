@@ -100,7 +100,7 @@ form.taskForm div button {
   height: 100% !important;
 }
 
-div.container div {
+div.container div.form {
   width: 100%;
 }
 
@@ -146,6 +146,7 @@ div.todoList div {
 
 div.todoList div div:nth-child(1) {
   justify-content: flex-start;
+  align-items: center;
   flex-grow: 1;
   font-size: 1.2rem;
 }
@@ -154,8 +155,9 @@ div.todoList div div:nth-child(1) input {
   margin: 0 0.4rem;
 }
 
-div.todoList > div > div:nth-child(2) {
+div.todoList>div>div:nth-child(2) {
   justify-content: flex-end;
+  align-items: center;
 }
 
 div.todoList div div:nth-child(2) svg {
@@ -203,4 +205,58 @@ div.todoInfo {
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
+}
+
+@media screen and (max-width: 800px) {
+  div.container {
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 0;
+  }
+
+  div.container div.todoList {
+    flex-grow: 1;
+  }
+
+  .todoInfo p {
+    font-size: 2rem;
+  }
+}
+
+input.checkBox {
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  accent-color: #00bf8f;
+  transition: all ease-in-out 0.5s;
+
+}
+
+input.checkBox:checked {
+
+  height: 35px;
+  width: 35px;
+}
+
+div.social {
+  /* height: 20px; */
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+div.icons {
+  flex-grow: 1;
+  align-self: flex-start;
+ justify-content: flex-start;
+  
+}
+
+a.icon{
+  color: #fff;
+  filter: drop-shadow(2px 2px 2px #000);
 }

@@ -7,6 +7,10 @@ import { v4 as uuid } from "uuid";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import InstagramIcon from '@mui/icons-material/Instagram';
+
 import { BsFillCalendarPlusFill } from "react-icons/bs";
 
 //date
@@ -113,7 +117,7 @@ function Form() {
       <h1>Taskly</h1>
       <hr />
       {editForm === false && (
-        <div>
+        <div className="form">
           <form ref={todoForm} className="taskForm">
             <div>
               <input
@@ -137,7 +141,7 @@ function Form() {
       )}
 
       {editForm === true && (
-        <div>
+        <div className="form">
           <form className="taskForm">
             <div>
               <input
@@ -179,6 +183,7 @@ function Form() {
                 <div className="todo">
                   <input
                     type="checkbox"
+                    className="checkBox"
                     onChange={() => {
                       handleComplete(todo, index);
                     }}
@@ -228,6 +233,18 @@ function Form() {
           }
         })()}
       </div>
+      <div className="social">
+        <div className="icons">
+          <a target="_blank" className="icon" href="https://www.linkedin.com/in/jshnsaini/"><LinkedInIcon /></a>
+          <a target="_blank" className="icon" href="https://github.com/jshn16"><GitHubIcon /></a>
+          <a target="_blank" className="icon" href="https://www.instagram.com/jshnsaini/"><InstagramIcon /></a>
+        </div>
+
+        <div>
+          <span>&copy; 2023 jshnsaini</span>
+        </div>
+      </div>
+
     </div>
   );
 }
