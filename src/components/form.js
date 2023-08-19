@@ -90,6 +90,7 @@ function Form() {
     let todoItems = [...todos];
     console.log(todoItems);
     let todoItem = todoItems[id];
+
     let editDate = date;
     todoItem.todoName = todoValue;
     todoItem.dateCreated = editDate;
@@ -97,10 +98,13 @@ function Form() {
     setTodo(todoItems);
     setTodoValue(``);
     setEditForm(false);
+
+
   }
 
   //Checkbox Handler
   function handleComplete(todo, index) {
+    setEditForm(false);
     let todoItems = [...todos];
 
     if (todo.todoCompleted === false) {
@@ -108,7 +112,7 @@ function Form() {
 
       // divChild.style.textDecoration='line-through'
     } else if (todo.todoCompleted === true) {
-      
+
       todo.todoCompleted = false;
       // divChild.style.textDecoration='none'
     }
@@ -200,9 +204,9 @@ function Form() {
                       style={
                         todo.todoCompleted === true
                           ? {
-                              textDecoration: "line-through",
-                              fontStyle: "italic",
-                            }
+                            textDecoration: "line-through",
+                            fontStyle: "italic",
+                          }
                           : { textDecoration: "none" }
                       }
                     >
