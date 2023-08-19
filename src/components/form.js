@@ -70,12 +70,16 @@ function Form() {
     setTodo(removeTodo);
   }
 
+
+  //Edit Todo Function
   const [editForm, setEditForm] = useState(false);
   const [id, setId] = useState();
 
   function handleEdit(todo, index) {
     console.log(index);
     console.log(todo.todoName);
+    
+
     setEditForm(true);
     setId(index);
     setTodoValue(todo.todoName);
@@ -86,9 +90,9 @@ function Form() {
     let todoItems = [...todos];
     console.log(todoItems);
     let todoItem = todoItems[id];
-
+    let editDate=date;
     todoItem.todoName = todoValue;
-
+    todoItem.dateCreated=editDate
     console.log(todoItem);
     setTodo(todoItems);
     setTodoValue(``);
@@ -110,6 +114,7 @@ function Form() {
     setTodoValue(todo);
 
     setTodo(todoItems);
+    setTodoValue(``)
   }
 
   return (
