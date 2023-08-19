@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { useRef } from "react";
 import { v4 as uuid } from "uuid";
 
+//React Icons
+import { AiFillDelete } from "react-icons/ai";
+import { FaEdit } from "react-icons/fa";
+
 //using local storage to fetch data
 function todoData() {
   const data = localStorage.getItem("Todos");
@@ -14,13 +18,19 @@ function todoData() {
 }
 
 function Form() {
-  
 
+  
   const [todoValue, setTodoValue] = useState("");
 
   const [todos, setTodo] = useState(todoData());
   // console.log(todos)
   let todoForm = useRef();
+
+  
+    
+  
+    
+ 
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -69,6 +79,7 @@ function Form() {
   }
 
   function handleEditSubmit(event) {
+    
     event.preventDefault();
     let todoItems = [...todos];
     console.log(todoItems);
@@ -89,10 +100,10 @@ function Form() {
     if (todo.todoCompleted === false) {
       todo.todoCompleted = true;
 
-      // spanChild.style.textDecoration='line-through'
+      // divChild.style.textDecoration='line-through'
     } else if (todo.todoCompleted === true) {
       todo.todoCompleted = false;
-      // spanChild.style.textDecoration='none'
+      // divChild.style.textDecoration='none'
     }
     setTodoValue(todo);
 
@@ -108,14 +119,18 @@ function Form() {
           <form ref={todoForm} className="taskForm">
             <div>
               <input
-              className="inputBox"
+                className="inputBox"
                 type="text"
                 placeholder="Add Tasks"
                 onChange={(event) => {
                   setTodoValue(event.target.value);
                 }}
               />
-              <button className="btn-common" onClick={handleSubmit} type="submit">
+              <button
+                className="btn-common"
+                onClick={handleSubmit}
+                type="submit"
+              >
                 Add
               </button>
             </div>
@@ -128,7 +143,7 @@ function Form() {
           <form className="taskForm">
             <div>
               <input
-              className="inputBox"
+                className="inputBox"
                 type="text"
                 placeholder="Add Tasks"
                 onChange={(event) => {
@@ -136,7 +151,11 @@ function Form() {
                 }}
                 value={todoValue}
               />
-              <button className="btn-common" onClick={handleEditSubmit} type="submit">
+              <button
+                className="btn-common"
+                onClick={handleEditSubmit}
+                type="submit"
+              >
                 Update
               </button>
             </div>
@@ -147,42 +166,49 @@ function Form() {
       <div className="todoList">
         {todos.length > 0 &&
           todos.map((todo, index) => (
-            <span key={index}>
+            <div key={index}>
               {/* <button onClick={() => { handleEdit(todo.id) }}>Edit</button> */}
-              <input
-                type="checkbox"
-                onChange={() => {
-                  handleComplete(todo, index);
-                }}
-                checked={todo.todoCompleted}
-              />
-              <p
-                style={
-                  todo.todoCompleted === true
-                    ? { textDecoration: "line-through" }
-                    : { textDecoration: "none" }
-                }
-              >
-                {todo.todoName}
-              </p>
-              <button
-              className="btn-common"
-                onClick={() => {
-                  handleDelete(todo.id);
-                }}
-              >
-                Delete
-              </button>
-              <button
-              className="btn-common"
-                onClick={() => {
-                  handleEdit(todo, index);
-                }}
-                type="submit"
-              >
-                Edit
-              </button>
-            </span>
+
+              <div className="todo">
+                <input
+                  type="checkbox"
+                  onChange={() => {
+                    handleComplete(todo, index);
+                  }}
+                  checked={todo.todoCompleted}
+                />
+                <p
+                  style={
+                    todo.todoCompleted === true
+                      ? { textDecoration: "line-through" }
+                      : { textDecoration: "none" }
+                  }
+                >
+                  {todo.todoName}
+                </p>
+              </div>
+
+              <div className="actions">
+                {/* <button
+                  className="btn-common"
+                  onClick={() => {
+                    handleDelete(todo.id);
+                  }}
+                >
+                  Delete
+                </button> */}
+                <AiFillDelete
+                  onClick={() => {
+                    handleDelete(todo.id);
+                  }}
+                />
+                <FaEdit
+                  onClick={() => {
+                    handleEdit(todo, index);
+                  }}
+                />
+              </div>
+            </div>
           ))}
       </div>
     </div>

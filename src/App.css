@@ -1,9 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Raleway:wght@500;700;900&family=Roboto:wght@500;700;900&display=swap");
 
+
 * {
-  margin: 0;
+  scroll-behavior: smooth !important;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  user-select: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar {
+  background: inherit;
 }
 
 
@@ -52,24 +63,24 @@ span p {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  min-height: 100vh;
+
 }
 
 .btn-common {
-  background: linear-gradient(120deg,#bccaf8dd,#e2e2e2);
+  background: linear-gradient(120deg, #bccaf8dd, #e2e2e2);
   background-size: 200%;
   border-radius: 2rem;
   border-width: 0;
-  box-shadow: 0 3px 8px rgba(0,0,0,.24);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .24);
   color: #000;
   cursor: pointer;
-  font-family: Quicksand,sans-serif;
-  font-size: 0.8rem;
+  font-family: Quicksand, sans-serif;
+  font-size: 1rem;
   font-weight: 700;
   margin: .2rem;
   outline: none;
   overflow: hidden;
-  padding: 0.2rem .4rem;
+  padding: 0.2rem 1rem;
   position: relative;
   transition: all .4s ease-in-out;
 }
@@ -80,18 +91,41 @@ span p {
   border-radius: 0.5rem;
 }
 
-.inputBox{
+.inputBox {
   border: none;
-    border-radius: 16px;
-    font-family: Quicksand,sans-serif;
-    padding: 4px 9px;
-    width: 200px;
+  border-radius: 16px;
+  font-family: Quicksand, sans-serif;
+  padding: 0.5rem;
+
+}
+
+form.taskForm {
+  width: 100% !important;
+}
+
+form.taskForm div {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form.taskForm div input {
+  height: 100%;
+  flex-grow: 1;
+}
+
+form.taskForm div button {
+  height: 100% !important;
 }
 
 
+div.container div {
+  width: 100%;
+}
 
 .container {
-  
+
   color: #fff;
   margin-top: 2rem;
   display: flex;
@@ -101,7 +135,7 @@ span p {
 
   background: linear-gradient(120deg, #000046,
       #1cb5e0);
-  width: 300px;
+  min-width: 400px;
   height: auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 1rem;
@@ -114,6 +148,55 @@ div.todoList {
   width: 100%;
   display: flex;
   flex-direction: column;
+  height: 30vh;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.8rem;
+
+}
+
+
+div.todoList div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+
+}
+
+div.todoList div div:nth-child(1) {
+  justify-content: flex-start;
+  flex-grow: 1;
+  font-size: 1.2rem;
+
+}
+
+div.todoList div div:nth-child(1) input {
+  margin: 0 0.4rem;
+
+}
+
+div.todoList div div:nth-child(2) {
+  justify-content: flex-end;
+
+}
+
+div.todoList div div:nth-child(2) svg {
+  font-size: 1.5rem;
+  margin: 0 0.2rem;
+  cursor: pointer;
+}
+
+
+div.todoList div div:nth-child(2) svg:hover {
+  transition: all ease-in-out 0.2s;
+  font-size: 1.6rem;
+  filter: drop-shadow(2px 2px 4px #000);
 }
 
 hr {
