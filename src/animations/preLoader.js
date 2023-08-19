@@ -10,15 +10,15 @@ function PreLoader() {
     preLoaderAnim();
     setTimeout(() => {
       navigate("/home");
-    }, 7000);
+    }, 6000);
   }, []);
 
   return (
     <div className="preloader">
       <div className="texts-container">
-        <span>Web Developer</span>
-        <span>Web Designer</span>
-        <span>Learner</span>
+        <h3>Web Developer</h3>
+        <h3>Web Designer</h3>
+        <h3>Learner</h3>
       </div>
 
       <img src={logo} className="app-logo" alt="logo" />

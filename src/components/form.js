@@ -7,6 +7,10 @@ import { v4 as uuid } from "uuid";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
+import { BsFillCalendarPlusFill } from "react-icons/bs";
+
+//date
+
 //using local storage to fetch data
 function todoData() {
   const data = localStorage.getItem("Todos");
@@ -18,19 +22,13 @@ function todoData() {
 }
 
 function Form() {
-
-  
   const [todoValue, setTodoValue] = useState("");
 
   const [todos, setTodo] = useState(todoData());
+
+  let date = new Date().toLocaleString();
   // console.log(todos)
   let todoForm = useRef();
-
-  
-    
-  
-    
- 
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -39,6 +37,7 @@ function Form() {
         id: uuid(),
         todoName: todoValue,
         todoCompleted: false,
+        dateCreated: date,
       };
 
       setTodo([...todos, todoObject]);
@@ -79,7 +78,6 @@ function Form() {
   }
 
   function handleEditSubmit(event) {
-    
     event.preventDefault();
     let todoItems = [...todos];
     console.log(todoItems);
@@ -164,52 +162,71 @@ function Form() {
       )}
 
       <div className="todoList">
-        {todos.length > 0 &&
-          todos.map((todo, index) => (
-            <div key={index}>
-              {/* <button onClick={() => { handleEdit(todo.id) }}>Edit</button> */}
-
-              <div className="todo">
-                <input
-                  type="checkbox"
-                  onChange={() => {
-                    handleComplete(todo, index);
-                  }}
-                  checked={todo.todoCompleted}
-                />
-                <p
-                  style={
-                    todo.todoCompleted === true
-                      ? { textDecoration: "line-through" }
-                      : { textDecoration: "none" }
-                  }
-                >
-                  {todo.todoName}
-                </p>
+        {(() => {
+          if (todos.length === 0) {
+            return (
+              <div className="empty">
+                <BsFillCalendarPlusFill />
+                <h3>No Tasks Yet? </h3>
+                <h4>Start by Clicking On Add Button</h4>
               </div>
+            );
+          } else if (todos.length > 0) {
+            return todos.map((todo, index) => (
+              <div key={index}>
+                {/* <button onClick={() => { handleEdit(todo.id) }}>Edit</button> */}
 
-              <div className="actions">
-                {/* <button
-                  className="btn-common"
-                  onClick={() => {
-                    handleDelete(todo.id);
-                  }}
-                >
-                  Delete
-                </button> */}
-                <AiFillDelete
-                  onClick={() => {
-                    handleDelete(todo.id);
-                  }}
-                />
-                <FaEdit
-                  onClick={() => {
-                    handleEdit(todo, index);
-                  }}
-                />
+                <div className="todo">
+                  <input
+                    type="checkbox"
+                    onChange={() => {
+                      handleComplete(todo, index);
+                    }}
+                    checked={todo.todoCompleted}
+                  />
+
+                  <div className="todoInfo">
+                    <p
+                      style={
+                        todo.todoCompleted === true
+                          ? {
+                            textDecoration: "line-through",
+                            fontStyle: "italic",
+                          }
+                          : { textDecoration: "none" }
+                      }
+                    >
+                      {todo.todoName}
+                    </p>
+
+                    <span>{todo.dateCreated}</span>
+                  </div>
+                </div>
+
+                <div className="actions">
+                  {/* <button
+                    className="btn-common"
+                    onClick={() => {
+                      handleDelete(todo.id);
+                    }}
+                  >
+                    Delete
+                  </button> */}
+                  <AiFillDelete
+                    onClick={() => {
+                      handleDelete(todo.id);
+                    }}
+                  />
+                  <FaEdit
+                    onClick={() => {
+                      handleEdit(todo, index);
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ));
+          }
+        })()}
       </div>
     </div>
   );
