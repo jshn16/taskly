@@ -65,9 +65,8 @@ span {
   transition: all 0.4s ease-in-out;
 }
 
-.btn-common:hover {
+.btn-common:hover, .btn-common:active {
   background-position: 200%;
-
   border-radius: 0.5rem;
 }
 
