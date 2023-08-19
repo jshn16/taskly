@@ -47,12 +47,12 @@ span {
 }
 
 .btn-common {
-  background: linear-gradient(120deg, #bccaf8dd, #e2e2e2);
+  background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
   background-size: 200%;
   border-radius: 2rem;
   border-width: 0;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
-  color: #000;
+  color: #fff;
   cursor: pointer;
   font-family: Quicksand, sans-serif;
   font-size: 1rem;
@@ -112,7 +112,7 @@ div.container {
   flex-direction: column;
   justify-content: center;
 
-  background: linear-gradient(120deg, #000046, #1cb5e0);
+  background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
   min-width: 320px;
   width: 400px;
   height: auto;
@@ -155,7 +155,7 @@ div.todoList div div:nth-child(1) input {
   margin: 0 0.4rem;
 }
 
-div.todoList>div>div:nth-child(2) {
+div.todoList > div > div:nth-child(2) {
   justify-content: flex-end;
   align-items: center;
 }
@@ -180,12 +180,6 @@ hr {
   margin: 1rem 0;
 }
 
-/* input {
-  padding: 0.2rem 0.5rem;
-  border: 2px solid #ccc;
-  
-} */
-
 div.empty {
   display: flex;
   flex-direction: column;
@@ -196,7 +190,7 @@ div.empty {
 
 div.empty svg {
   font-size: 10rem;
-  filter: drop-shadow(1px 2px 4px #000);
+  filter: drop-shadow(4px 4px 6px #000);
   margin: 1rem;
 }
 
@@ -231,11 +225,9 @@ input.checkBox {
   background-color: black;
   accent-color: #00bf8f;
   transition: all ease-in-out 0.5s;
-
 }
 
 input.checkBox:checked {
-
   height: 35px;
   width: 35px;
 }
@@ -252,11 +244,14 @@ div.social {
 div.icons {
   flex-grow: 1;
   align-self: flex-start;
- justify-content: flex-start;
-  
+  justify-content: flex-start;
 }
 
-a.icon{
+a.icon {
   color: #fff;
+  /*  */
+}
+
+a.icon:hover {
   filter: drop-shadow(2px 2px 2px #000);
 }
