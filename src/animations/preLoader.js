@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./preLoader.css";
 import { preLoaderAnim } from ".";
-import logo from "../logo.svg";
+import logo from "../logo.png";
 import { useNavigate } from "react-router-dom";
 
 function PreLoader() {

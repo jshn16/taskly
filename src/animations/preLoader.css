@@ -29,22 +29,23 @@ div.texts-container {
   margin: 3rem 0;
 }
 
-@keyframes spin {
+@keyframes glow {
   from {
-    transform: rotate(360deg);
-  }
-
-  to {
-    transform: rotate(0deg);
-  }
+    filter: drop-shadow(0 0 15px #fff);;
+}
+to {
+    filter: drop-shadow(0 0 5px #fff);
+}
 }
 
 .app-logo {
-  height: 150px;
-  animation-name: spin;
-  animation-duration: 10s;
+  height: 100px;
+  animation-name: glow;
+  animation-duration: 4s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+
 }
 
 div.texts-container span {

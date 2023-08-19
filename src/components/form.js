@@ -99,7 +99,6 @@ function Form() {
     setTodoValue(``);
     setEditForm(false);
 
-
   }
 
   //Checkbox Handler
