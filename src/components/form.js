@@ -7,9 +7,9 @@ import { v4 as uuid } from "uuid";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 import { BsFillCalendarPlusFill } from "react-icons/bs";
 
@@ -70,7 +70,6 @@ function Form() {
     setTodo(removeTodo);
   }
 
-
   //Edit Todo Function
   const [editForm, setEditForm] = useState(false);
   const [id, setId] = useState();
@@ -78,7 +77,6 @@ function Form() {
   function handleEdit(todo, index) {
     console.log(index);
     console.log(todo.todoName);
-    
 
     setEditForm(true);
     setId(index);
@@ -90,9 +88,9 @@ function Form() {
     let todoItems = [...todos];
     console.log(todoItems);
     let todoItem = todoItems[id];
-    let editDate=date;
+    let editDate = date;
     todoItem.todoName = todoValue;
-    todoItem.dateCreated=editDate
+    todoItem.dateCreated = editDate;
     console.log(todoItem);
     setTodo(todoItems);
     setTodoValue(``);
@@ -112,9 +110,8 @@ function Form() {
       // divChild.style.textDecoration='none'
     }
     setTodoValue(todo);
-
     setTodo(todoItems);
-    setTodoValue(``)
+    setTodoValue(``);
   }
 
   return (
@@ -200,9 +197,9 @@ function Form() {
                       style={
                         todo.todoCompleted === true
                           ? {
-                            textDecoration: "line-through",
-                            fontStyle: "italic",
-                          }
+                              textDecoration: "line-through",
+                              fontStyle: "italic",
+                            }
                           : { textDecoration: "none" }
                       }
                     >
@@ -240,16 +237,29 @@ function Form() {
       </div>
       <div className="social">
         <div className="icons">
-          <a target="_blank" className="icon" href="https://www.linkedin.com/in/jshnsaini/"><LinkedInIcon /></a>
-          <a target="_blank" className="icon" href="https://github.com/jshn16"><GitHubIcon /></a>
-          <a target="_blank" className="icon" href="https://www.instagram.com/jshnsaini/"><InstagramIcon /></a>
+          <a
+            target="_blank"
+            className="icon"
+            href="https://www.linkedin.com/in/jshnsaini/"
+          >
+            <LinkedInIcon />
+          </a>
+          <a target="_blank" className="icon" href="https://github.com/jshn16">
+            <GitHubIcon />
+          </a>
+          <a
+            target="_blank"
+            className="icon"
+            href="https://www.instagram.com/jshnsaini/"
+          >
+            <InstagramIcon />
+          </a>
         </div>
 
         <div>
           <span>&copy; 2023 jshnsaini</span>
         </div>
       </div>
-
     </div>
   );
 }
