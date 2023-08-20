@@ -27,14 +27,14 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path='/' element={<PreLoader />}></Route>
         </Routes>
         <Routes>
           <Route path='home' element={<Form />}></Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
 
     </div>
   );
