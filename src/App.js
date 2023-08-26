@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import './App.css';
+import './App.scss';
 import Form from './components/form';
 import PreLoader from './animations/preLoader'
 import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
@@ -8,16 +8,16 @@ import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
-  useEffect(() => {
-    const handleContextmenu = (e) => {
-      e.preventDefault();
-      alert("Right Click Deactivated Due to Copyright Issues.")
-    };
-    document.addEventListener("contextmenu", handleContextmenu);
-    return function cleanup() {
-      document.removeEventListener("contextmenu", handleContextmenu);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleContextmenu = (e) => {
+  //     e.preventDefault();
+  //     alert("Right Click Deactivated Due to Copyright Issues.")
+  //   };
+  //   document.addEventListener("contextmenu", handleContextmenu);
+  //   return function cleanup() {
+  //     document.removeEventListener("contextmenu", handleContextmenu);
+  //   };
+  // }, []);
 
   useEffect(() => {
     document.title = "Taskly"
