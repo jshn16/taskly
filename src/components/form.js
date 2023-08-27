@@ -69,6 +69,7 @@ function Form() {
     console.log(id);
     //only show those todo's that has id not equall to the one clicked
     let removeTodo = todos.filter((todo) => todo.id !== id);
+    console.log(removeTodo)
     setTodo(removeTodo);
   }
 
