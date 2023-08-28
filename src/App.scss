@@ -47,7 +47,7 @@ span {
 }
 
 .btn-common {
-  background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
+  background: linear-gradient(120deg, #06142e, #1b3358, #f1916d);
   background-size: 200%;
   border-radius: 2rem;
   border-width: 0;
@@ -68,6 +68,7 @@ span {
 .btn-common:hover, .btn-common:active {
   background-position: 200%;
   border-radius: 0.5rem;
+  padding: 0 2rem;
 }
 
 .inputBox {
@@ -111,7 +112,7 @@ div.container {
   flex-direction: column;
   justify-content: center;
 
-  background: linear-gradient(120deg, #03001e, #7303c0, #ec38bc);
+  background: linear-gradient(120deg, #072e33, #0c7075, #0f969c);
   min-width: 320px;
   width: 500px;
   height: auto;
